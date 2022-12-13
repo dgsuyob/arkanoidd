@@ -31,10 +31,11 @@ protected:
 	UFUNCTION()
 		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
 
-	void DestroyBrick();
+	void DestroyBrick(); 
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void behavior() = 0;
 };

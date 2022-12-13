@@ -13,5 +13,9 @@ UCLASS()
 class ARKANOID_API AstrangeBrick : public ABrick
 {
 	GENERATED_BODY()
+		AstrangeBrick();
 	
+public:
+	virtual void Tick(float DeltaTime);
+	virtual void behavior();
 };
