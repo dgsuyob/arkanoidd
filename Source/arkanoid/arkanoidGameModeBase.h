@@ -4,8 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "Brick.h"
-#include "strangeBrick.h"
 #include "arkanoidGameModeBase.generated.h"
 
 /**
@@ -17,7 +15,7 @@ class ARKANOID_API AarkanoidGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 	
 public: 
-	ABrick* lad;
+	
 
 protected:
 	virtual void BeginPlay();

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "countBrick.generated.h"
+#include "countBrick.generated.h"}
 
 UCLASS()
 class ARKANOID_API AcountBrick : public AActor
@@ -22,5 +22,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+private:
+	int count;
 };

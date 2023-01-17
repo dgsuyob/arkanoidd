@@ -23,7 +23,8 @@ public:
 protected:
 	virtual void BeginPlay() override;
 	void MoveHorizontal(float AxisValue);
-	void Launch();
+	UFUNCTION()
+		void Launch();
 
 	UPROPERTY(EditAnywhere)
 		TSubclassOf<ABall> BallObj;
