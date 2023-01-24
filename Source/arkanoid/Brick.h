@@ -4,20 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "capsuleFactory.h"
 #include "Brick.generated.h"
+
+static int BricksLevel = 70;
 
 class UBoxComponent;
 UCLASS()
 class ARKANOID_API ABrick : public AActor
 {
 	GENERATED_BODY()
-	
+private:
+	bool HabilitadoCreacionCapsulas; 
 public:	
-	// Sets default values for this actor's properties
+	
 	ABrick();
-
+	void ContBricksLevel(int _Cont); 
 protected:
-	// Called when the game starts or when spawned
+	
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -28,17 +32,25 @@ protected:
 
 	float SpeedModifierOnBounce = 1.01f;
 
+	UPROPERTY()
+		class UMaterialInstanceDynamic* MaterialInstance; 
+
+	UPROPERTY()
+		class UMaterialInterface* _Dynamic; 
+
 	UFUNCTION()
 		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
 
-	
+	void CreateCapsule(FVector Location);
 
 public:	
-	// Called every frame
+	
 	virtual void Tick(float DeltaTime) override;
 
 	void DestroyBrick();
-	UFUNCTION()
-		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
 
+	virtual AcapsuleFactory* CreateCapsule(int NumCapsule, FVector Location) PURE_VIRTUAL(ABrick::CreateCapsule, return nullptr;); 
+
+	AcapsuleFactory* OrdenCapsule(int NumCategory, FVector Spawn); 
+	
 };

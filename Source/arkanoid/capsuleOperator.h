@@ -13,5 +13,6 @@ UCLASS()
 class ARKANOID_API AcapsuleOperator : public ABrick
 {
 	GENERATED_BODY()
-	
+public:
+	virtual AcapsuleFactory* CreateCapsule(int NumCapsule, FVector Location) override;
 };

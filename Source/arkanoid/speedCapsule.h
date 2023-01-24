@@ -13,5 +13,8 @@ UCLASS()
 class ARKANOID_API AspeedCapsule : public AcapsuleFactory
 {
 	GENERATED_BODY()
-	
+public:
+	AspeedCapsule();
+protected:
+	virtual void BeginPlay() override;
 };
